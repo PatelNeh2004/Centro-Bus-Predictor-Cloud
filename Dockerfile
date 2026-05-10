@@ -14,10 +14,5 @@ COPY --from=build /app/target/*.jar app.jar
 ENV PORT=10000
 EXPOSE 10000
 
-# Tell Docker to expect these variables from Render
-ENV DB_URL=${DB_URL}
-ENV DB_USERNAME=${DB_USERNAME}
-ENV DB_PASSWORD=${DB_PASSWORD}
-
 # Start the app but restrict memory usage so Render doesn't kill it
 ENTRYPOINT ["java", "-Xmx256m", "-jar", "app.jar"]
