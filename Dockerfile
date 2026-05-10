@@ -14,5 +14,9 @@ COPY --from=build /app/target/*.jar app.jar
 ENV PORT=10000
 EXPOSE 10000
 
+# Tell Docker to pull these specific API keys from Render
+ENV CENTRO_KEY=${CENTRO_KEY}
+ENV OPENWEATHER_KEY=${OPENWEATHER_KEY}
+
 # Start the app but restrict memory usage so Render doesn't kill it
 ENTRYPOINT ["java", "-Xmx256m", "-jar", "app.jar"]
