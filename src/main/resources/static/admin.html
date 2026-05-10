@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page setup -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro Bus App Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <div class="brand-mark">
+          <p class="brand-kicker">Centro Bus Predictor</p>
+          <h1>Centro Bus App</h1>
+          <p class="brand-copy">Admin tools and system info</p>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a class="nav-item" href="./search.html">Search</a>
+          <a class="nav-item active" href="./admin.html">Admin</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="user-chip__avatar">AD</div>
+          <div>
+            <p class="user-chip__label">Signed in as</p>
+            <strong id="admin-username">admin</strong>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="admin-layout">
+      <main class="admin-main">
+        <section class="admin-topbar">
+          <div>
+            <h1>Admin Page</h1>
+            <p>Current system status and recent system logs</p>
+          </div>
+          <div class="admin-topbar__actions">
+            <button id="refresh-data-btn" class="btn admin-action-btn" type="button">Refresh Data</button>
+            <button id="logout-btn" class="btn admin-logout-btn" type="button">Log Out</button>
+          </div>
+        </section>
+
+        <section class="admin-stats-grid">
+          <article class="admin-stat-card">
+            <p class="section-label">Total Stops Served</p>
+            <div id="admin-buses-polled-value" class="admin-stat-value">--</div>
+          </article>
+
+          <article class="admin-stat-card">
+            <p class="section-label">Average Delay</p>
+            <div id="admin-accuracy-value" class="admin-stat-value">--</div>
+          </article>
+
+          <article class="admin-stat-card">
+            <p class="section-label">Active Routes</p>
+            <div id="admin-active-routes-value" class="admin-stat-value">--</div>
+            <p id="admin-active-routes-note" class="dashboard-copy">Waiting</p>
+          </article>
+
+          <article class="admin-stat-card">
+            <p class="section-label">Centro Pull Requests</p>
+            <div id="admin-centro-pulls-value" class="admin-stat-value">--</div>
+          </article>
+
+          <article class="admin-stat-card">
+            <p class="section-label">Weather Pull Requests</p>
+            <div id="admin-weather-pulls-value" class="admin-stat-value">--</div>
+          </article>
+
+          <article class="admin-status-card">
+            <p class="section-label">System Status</p>
+            <div id="admin-status-list" class="status-list">
+              <div class="status-item">
+                <span>Centro API</span>
+                <strong>Connected</strong>
+              </div>
+              <div class="status-item">
+                <span>OpenWeather</span>
+                <strong>Connected</strong>
+              </div>
+              <div class="status-item">
+                <span>MySQL DB</span>
+                <strong>Connected</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="admin-bottom-grid">
+          <article class="glass-card admin-logs-card admin-logs-card--wide">
+            <div class="admin-card-head">
+              <h2>Recent System Logs</h2>
+            </div>
+
+            <div class="logs-table-head">
+              <span>Timestamp</span>
+              <span>Event Name</span>
+            </div>
+
+            <div id="system-logs-list" class="system-logs-list"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="./admin.js"></script>
+</body>
+</html>
